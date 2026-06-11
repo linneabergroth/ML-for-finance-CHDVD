@@ -1,0 +1,512 @@
+{
+  "best_value": 0.3040002064520988,
+  "best_params": {
+    "signal_config": "A + C",
+    "n_estimators": 785,
+    "max_depth": 6,
+    "learning_rate": 0.13766134492174428,
+    "subsample": 0.7468977981821954
+  },
+  "trials": [
+    {
+      "value": 0.10213894182144853,
+      "params": {
+        "signal_config": "B only",
+        "n_estimators": 641,
+        "max_depth": 7,
+        "learning_rate": 0.010725209743171997,
+        "subsample": 0.9849549260809971
+      }
+    },
+    {
+      "value": 0.09126640185984951,
+      "params": {
+        "signal_config": "A only",
+        "n_estimators": 651,
+        "max_depth": 3,
+        "learning_rate": 0.027010527749605478,
+        "subsample": 0.6831809216468459
+      }
+    },
+    {
+      "value": 0.11269262079703932,
+      "params": {
+        "signal_config": "B only",
+        "n_estimators": 158,
+        "max_depth": 8,
+        "learning_rate": 0.26690431824362526,
+        "subsample": 0.9041986740582306
+      }
+    },
+    {
+      "value": 0.06948480733601854,
+      "params": {
+        "signal_config": "No signals",
+        "n_estimators": 333,
+        "max_depth": 6,
+        "learning_rate": 0.028869220380495747,
+        "subsample": 0.7600340105889054
+      }
+    },
+    {
+      "value": 0.1616832164109518,
+      "params": {
+        "signal_config": "C only",
+        "n_estimators": 179,
+        "max_depth": 4,
+        "learning_rate": 0.011662890273931383,
+        "subsample": 0.6626651653816322
+      }
+    },
+    {
+      "value": -0.0036965358206694937,
+      "params": {
+        "signal_config": "C only",
+        "n_estimators": 167,
+        "max_depth": 8,
+        "learning_rate": 0.13826083091896751,
+        "subsample": 0.5993578407670862
+      }
+    },
+    {
+      "value": 0.10415268830214136,
+      "params": {
+        "signal_config": "B only",
+        "n_estimators": 877,
+        "max_depth": 6,
+        "learning_rate": 0.030816017044468066,
+        "subsample": 0.5317791751430119
+      }
+    },
+    {
+      "value": 0.3040002064520988,
+      "params": {
+        "signal_config": "A + C",
+        "n_estimators": 785,
+        "max_depth": 6,
+        "learning_rate": 0.13766134492174428,
+        "subsample": 0.7468977981821954
+      }
+    },
+    {
+      "value": 0.07842413972088905,
+      "params": {
+        "signal_config": "B + C",
+        "n_estimators": 917,
+        "max_depth": 4,
+        "learning_rate": 0.040381768820718394,
+        "subsample": 0.8777755692715243
+      }
+    },
+    {
+      "value": 0.13033716994055616,
+      "params": {
+        "signal_config": "A + C",
+        "n_estimators": 824,
+        "max_depth": 4,
+        "learning_rate": 0.20816986844858934,
+        "subsample": 0.7696711209578253
+      }
+    },
+    {
+      "value": 0.215923500090388,
+      "params": {
+        "signal_config": "A + C",
+        "n_estimators": 427,
+        "max_depth": 5,
+        "learning_rate": 0.09253102776063865,
+        "subsample": 0.8259332753890892
+      }
+    },
+    {
+      "value": 0.21597190143801462,
+      "params": {
+        "signal_config": "A + C",
+        "n_estimators": 471,
+        "max_depth": 5,
+        "learning_rate": 0.08566835035934801,
+        "subsample": 0.8218563683119117
+      }
+    },
+    {
+      "value": 0.2595756687855729,
+      "params": {
+        "signal_config": "A + C",
+        "n_estimators": 496,
+        "max_depth": 5,
+        "learning_rate": 0.07972749023808709,
+        "subsample": 0.7011185331160047
+      }
+    },
+    {
+      "value": 0.09279515666608076,
+      "params": {
+        "signal_config": "A + B + C",
+        "n_estimators": 721,
+        "max_depth": 7,
+        "learning_rate": 0.07151896213924194,
+        "subsample": 0.6761456816918938
+      }
+    },
+    {
+      "value": 0.11872196669418561,
+      "params": {
+        "signal_config": "A + B",
+        "n_estimators": 999,
+        "max_depth": 6,
+        "learning_rate": 0.14660654354754468,
+        "subsample": 0.5846855782379785
+      }
+    },
+    {
+      "value": 0.20358334703735856,
+      "params": {
+        "signal_config": "A + C",
+        "n_estimators": 540,
+        "max_depth": 5,
+        "learning_rate": 0.13392453007253155,
+        "subsample": 0.7049565789093377
+      }
+    },
+    {
+      "value": 0.06453894844627985,
+      "params": {
+        "signal_config": "A + C",
+        "n_estimators": 352,
+        "max_depth": 7,
+        "learning_rate": 0.05590650553186857,
+        "subsample": 0.6165522761933632
+      }
+    },
+    {
+      "value": 0.00529112397009158,
+      "params": {
+        "signal_config": "A only",
+        "n_estimators": 757,
+        "max_depth": 3,
+        "learning_rate": 0.18547996942671144,
+        "subsample": 0.50541526851107
+      }
+    },
+    {
+      "value": 0.10981164866443018,
+      "params": {
+        "signal_config": "A + B + C",
+        "n_estimators": 600,
+        "max_depth": 6,
+        "learning_rate": 0.10422375451040877,
+        "subsample": 0.7304453570550351
+      }
+    },
+    {
+      "value": 0.08810874774252819,
+      "params": {
+        "signal_config": "No signals",
+        "n_estimators": 515,
+        "max_depth": 5,
+        "learning_rate": 0.055929172623465154,
+        "subsample": 0.8057660474228033
+      }
+    },
+    {
+      "value": 0.1337315489376987,
+      "params": {
+        "signal_config": "A + B",
+        "n_estimators": 290,
+        "max_depth": 4,
+        "learning_rate": 0.2776777411958814,
+        "subsample": 0.6382089507931044
+      }
+    },
+    {
+      "value": 0.1691774017468977,
+      "params": {
+        "signal_config": "A + C",
+        "n_estimators": 453,
+        "max_depth": 5,
+        "learning_rate": 0.08503441901354596,
+        "subsample": 0.8369855264398923
+      }
+    },
+    {
+      "value": 0.07898131801825083,
+      "params": {
+        "signal_config": "A + C",
+        "n_estimators": 450,
+        "max_depth": 5,
+        "learning_rate": 0.07590523923537681,
+        "subsample": 0.8809283502824345
+      }
+    },
+    {
+      "value": 0.1728598440871824,
+      "params": {
+        "signal_config": "A + C",
+        "n_estimators": 719,
+        "max_depth": 6,
+        "learning_rate": 0.1170443143274206,
+        "subsample": 0.7713247163670991
+      }
+    },
+    {
+      "value": 0.10084798311978015,
+      "params": {
+        "signal_config": "B + C",
+        "n_estimators": 578,
+        "max_depth": 7,
+        "learning_rate": 0.04239399901800741,
+        "subsample": 0.7356210595584223
+      }
+    },
+    {
+      "value": -0.04588582995395237,
+      "params": {
+        "signal_config": "A + C",
+        "n_estimators": 263,
+        "max_depth": 5,
+        "learning_rate": 0.18611189678422893,
+        "subsample": 0.9493593389683188
+      }
+    },
+    {
+      "value": 0.17223592458244932,
+      "params": {
+        "signal_config": "A + C",
+        "n_estimators": 496,
+        "max_depth": 4,
+        "learning_rate": 0.0658179027670136,
+        "subsample": 0.7952908891858086
+      }
+    },
+    {
+      "value": 0.20133188211972852,
+      "params": {
+        "signal_config": "A + C",
+        "n_estimators": 389,
+        "max_depth": 6,
+        "learning_rate": 0.04038831030064711,
+        "subsample": 0.7166237469846549
+      }
+    },
+    {
+      "value": 0.09177288914450188,
+      "params": {
+        "signal_config": "A + C",
+        "n_estimators": 653,
+        "max_depth": 5,
+        "learning_rate": 0.020880086224311468,
+        "subsample": 0.850164146641605
+      }
+    },
+    {
+      "value": 0.030501713524139017,
+      "params": {
+        "signal_config": "No signals",
+        "n_estimators": 811,
+        "max_depth": 7,
+        "learning_rate": 0.10445597070914422,
+        "subsample": 0.9345096954319009
+      }
+    },
+    {
+      "value": 0.1819065219593024,
+      "params": {
+        "signal_config": "B + C",
+        "n_estimators": 637,
+        "max_depth": 6,
+        "learning_rate": 0.15784623734028863,
+        "subsample": 0.9748144607072986
+      }
+    },
+    {
+      "value": 0.21594878482939156,
+      "params": {
+        "signal_config": "A + C",
+        "n_estimators": 443,
+        "max_depth": 5,
+        "learning_rate": 0.0923599801600321,
+        "subsample": 0.8181913419446609
+      }
+    },
+    {
+      "value": 0.13262677225306885,
+      "params": {
+        "signal_config": "A only",
+        "n_estimators": 485,
+        "max_depth": 5,
+        "learning_rate": 0.08556163521522646,
+        "subsample": 0.778785597034225
+      }
+    },
+    {
+      "value": 0.13096801434699296,
+      "params": {
+        "signal_config": "A + C",
+        "n_estimators": 390,
+        "max_depth": 3,
+        "learning_rate": 0.11211027210641648,
+        "subsample": 0.8110024454163853
+      }
+    },
+    {
+      "value": 0.19272190881582382,
+      "params": {
+        "signal_config": "B only",
+        "n_estimators": 579,
+        "max_depth": 4,
+        "learning_rate": 0.060749602180737064,
+        "subsample": 0.8592807587052289
+      }
+    },
+    {
+      "value": 0.15260205620420175,
+      "params": {
+        "signal_config": "C only",
+        "n_estimators": 259,
+        "max_depth": 5,
+        "learning_rate": 0.045704868967394736,
+        "subsample": 0.6972248821194833
+      }
+    },
+    {
+      "value": 0.29346248392181923,
+      "params": {
+        "signal_config": "A + C",
+        "n_estimators": 678,
+        "max_depth": 6,
+        "learning_rate": 0.20719441370591102,
+        "subsample": 0.6522606264710616
+      }
+    },
+    {
+      "value": -0.034663571219577104,
+      "params": {
+        "signal_config": "A + B + C",
+        "n_estimators": 674,
+        "max_depth": 6,
+        "learning_rate": 0.22647727174380392,
+        "subsample": 0.6508255378436929
+      }
+    },
+    {
+      "value": -0.025730063413653425,
+      "params": {
+        "signal_config": "A + B",
+        "n_estimators": 790,
+        "max_depth": 7,
+        "learning_rate": 0.23900532083939147,
+        "subsample": 0.5675501999857621
+      }
+    },
+    {
+      "value": 0.19873457422369462,
+      "params": {
+        "signal_config": "B only",
+        "n_estimators": 918,
+        "max_depth": 6,
+        "learning_rate": 0.16947292059155059,
+        "subsample": 0.7506917998008188
+      }
+    },
+    {
+      "value": 0.05926552025529178,
+      "params": {
+        "signal_config": "C only",
+        "n_estimators": 692,
+        "max_depth": 8,
+        "learning_rate": 0.2879323535542299,
+        "subsample": 0.6274194562974297
+      }
+    },
+    {
+      "value": 0.21190490646995624,
+      "params": {
+        "signal_config": "A + C",
+        "n_estimators": 614,
+        "max_depth": 5,
+        "learning_rate": 0.1288384769516446,
+        "subsample": 0.6753370643024691
+      }
+    },
+    {
+      "value": 0.05870745680248135,
+      "params": {
+        "signal_config": "A + C",
+        "n_estimators": 408,
+        "max_depth": 6,
+        "learning_rate": 0.0887544285870918,
+        "subsample": 0.9040551682538409
+      }
+    },
+    {
+      "value": 0.1335151650837906,
+      "params": {
+        "signal_config": "A + C",
+        "n_estimators": 856,
+        "max_depth": 4,
+        "learning_rate": 0.07426303199523386,
+        "subsample": 0.7882316078852282
+      }
+    },
+    {
+      "value": 0.18658173476741055,
+      "params": {
+        "signal_config": "A + C",
+        "n_estimators": 539,
+        "max_depth": 6,
+        "learning_rate": 0.011971731786358016,
+        "subsample": 0.7499658591334026
+      }
+    },
+    {
+      "value": 0.2189470600169502,
+      "params": {
+        "signal_config": "A + C",
+        "n_estimators": 355,
+        "max_depth": 5,
+        "learning_rate": 0.1303776200625617,
+        "subsample": 0.6884100440251173
+      }
+    },
+    {
+      "value": 0.19805748202930104,
+      "params": {
+        "signal_config": "A only",
+        "n_estimators": 344,
+        "max_depth": 5,
+        "learning_rate": 0.14709791162728972,
+        "subsample": 0.6903979657934763
+      }
+    },
+    {
+      "value": 0.06705516201911106,
+      "params": {
+        "signal_config": "A + C",
+        "n_estimators": 214,
+        "max_depth": 7,
+        "learning_rate": 0.17860625262874097,
+        "subsample": 0.6617294344298321
+      }
+    },
+    {
+      "value": -0.00023098684271764152,
+      "params": {
+        "signal_config": "No signals",
+        "n_estimators": 122,
+        "max_depth": 6,
+        "learning_rate": 0.2073701229583355,
+        "subsample": 0.6030685411278902
+      }
+    },
+    {
+      "value": 0.17215858592309996,
+      "params": {
+        "signal_config": "A + C",
+        "n_estimators": 311,
+        "max_depth": 4,
+        "learning_rate": 0.1286587530854643,
+        "subsample": 0.7180641776648363
+      }
+    }
+  ]
+}

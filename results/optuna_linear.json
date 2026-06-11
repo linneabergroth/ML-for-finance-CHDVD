@@ -1,0 +1,359 @@
+{
+  "best_value": 0.08703444581940815,
+  "best_params": {
+    "signal_config": "B only",
+    "alpha": 0.09384800715909536
+  },
+  "trials": [
+    {
+      "value": 0.0013354008136012474,
+      "params": {
+        "signal_config": "B only",
+        "alpha": 0.004042872735027332
+      }
+    },
+    {
+      "value": -0.03758993996992011,
+      "params": {
+        "signal_config": "C only",
+        "alpha": 0.0014077923139972403
+      }
+    },
+    {
+      "value": -0.008323765373057849,
+      "params": {
+        "signal_config": "No signals",
+        "alpha": 1.5777663630582448e-05
+      }
+    },
+    {
+      "value": 0.048336044972919844,
+      "params": {
+        "signal_config": "No signals",
+        "alpha": 0.07085721663941602
+      }
+    },
+    {
+      "value": -0.009067363310288777,
+      "params": {
+        "signal_config": "No signals",
+        "alpha": 3.5700959600309506e-05
+      }
+    },
+    {
+      "value": 0.04881184664848035,
+      "params": {
+        "signal_config": "B + C",
+        "alpha": 0.2338643925620872
+      }
+    },
+    {
+      "value": 0.08703444581940815,
+      "params": {
+        "signal_config": "B only",
+        "alpha": 0.09384800715909536
+      }
+    },
+    {
+      "value": -0.031076266311105806,
+      "params": {
+        "signal_config": "A + B + C",
+        "alpha": 1.5570196345516602e-05
+      }
+    },
+    {
+      "value": 0.06608643595712628,
+      "params": {
+        "signal_config": "B only",
+        "alpha": 0.15087613675681671
+      }
+    },
+    {
+      "value": -0.01918452275448882,
+      "params": {
+        "signal_config": "No signals",
+        "alpha": 0.0006812233896860299
+      }
+    },
+    {
+      "value": -0.03569153648497373,
+      "params": {
+        "signal_config": "A + C",
+        "alpha": 1.0863833419456794e-06
+      }
+    },
+    {
+      "value": 0.013471912687471775,
+      "params": {
+        "signal_config": "B only",
+        "alpha": 0.0355245781312278
+      }
+    },
+    {
+      "value": 0.048811844486746865,
+      "params": {
+        "signal_config": "B only",
+        "alpha": 0.28509649208703886
+      }
+    },
+    {
+      "value": null,
+      "params": {
+        "signal_config": "A only",
+        "alpha": 0.708847137649731
+      }
+    },
+    {
+      "value": null,
+      "params": {
+        "signal_config": "A only",
+        "alpha": 0.9513407658121008
+      }
+    },
+    {
+      "value": -0.01649801923399701,
+      "params": {
+        "signal_config": "A + B",
+        "alpha": 0.01417398675144927
+      }
+    },
+    {
+      "value": null,
+      "params": {
+        "signal_config": "A only",
+        "alpha": 0.8860244914496878
+      }
+    },
+    {
+      "value": 0.048811845439883476,
+      "params": {
+        "signal_config": "A only",
+        "alpha": 0.5291864958856115
+      }
+    },
+    {
+      "value": null,
+      "params": {
+        "signal_config": "B only",
+        "alpha": 0.9780337076930404
+      }
+    },
+    {
+      "value": -0.000605492707421233,
+      "params": {
+        "signal_config": "B only",
+        "alpha": 0.008232944247800777
+      }
+    },
+    {
+      "value": null,
+      "params": {
+        "signal_config": "B only",
+        "alpha": 0.9815265498939565
+      }
+    },
+    {
+      "value": 0.05712431458189454,
+      "params": {
+        "signal_config": "B only",
+        "alpha": 0.0748228623970511
+      }
+    },
+    {
+      "value": null,
+      "params": {
+        "signal_config": "A + B + C",
+        "alpha": 0.8931026319013851
+      }
+    },
+    {
+      "value": null,
+      "params": {
+        "signal_config": "A + B + C",
+        "alpha": 0.9464533014403655
+      }
+    },
+    {
+      "value": null,
+      "params": {
+        "signal_config": "A + B + C",
+        "alpha": 0.8869322855187632
+      }
+    },
+    {
+      "value": -0.03983873230910189,
+      "params": {
+        "signal_config": "A only",
+        "alpha": 0.00031735668424563593
+      }
+    },
+    {
+      "value": null,
+      "params": {
+        "signal_config": "B + C",
+        "alpha": 0.9485752360343505
+      }
+    },
+    {
+      "value": null,
+      "params": {
+        "signal_config": "A + B",
+        "alpha": 0.9768038778983341
+      }
+    },
+    {
+      "value": 0.04881184463551481,
+      "params": {
+        "signal_config": "B + C",
+        "alpha": 0.6194805516104712
+      }
+    },
+    {
+      "value": -0.008382195464807951,
+      "params": {
+        "signal_config": "A + B + C",
+        "alpha": 0.02682810841863975
+      }
+    },
+    {
+      "value": 0.07868380938822747,
+      "params": {
+        "signal_config": "C only",
+        "alpha": 0.12695290767965514
+      }
+    },
+    {
+      "value": 0.06394946687355044,
+      "params": {
+        "signal_config": "C only",
+        "alpha": 0.15381727683477514
+      }
+    },
+    {
+      "value": null,
+      "params": {
+        "signal_config": "C only",
+        "alpha": 0.8605263373196326
+      }
+    },
+    {
+      "value": 0.07680602985069121,
+      "params": {
+        "signal_config": "C only",
+        "alpha": 0.08476585656344032
+      }
+    },
+    {
+      "value": -0.04918053249151856,
+      "params": {
+        "signal_config": "C only",
+        "alpha": 0.002808356808148659
+      }
+    },
+    {
+      "value": null,
+      "params": {
+        "signal_config": "C only",
+        "alpha": 0.7525815214398323
+      }
+    },
+    {
+      "value": null,
+      "params": {
+        "signal_config": "C only",
+        "alpha": 0.730463960356895
+      }
+    },
+    {
+      "value": -0.030401685842474036,
+      "params": {
+        "signal_config": "C only",
+        "alpha": 0.0130325646327752
+      }
+    },
+    {
+      "value": null,
+      "params": {
+        "signal_config": "C only",
+        "alpha": 0.843195658669041
+      }
+    },
+    {
+      "value": null,
+      "params": {
+        "signal_config": "C only",
+        "alpha": 0.696638064924774
+      }
+    },
+    {
+      "value": null,
+      "params": {
+        "signal_config": "C only",
+        "alpha": 0.8451816725647648
+      }
+    },
+    {
+      "value": null,
+      "params": {
+        "signal_config": "C only",
+        "alpha": 0.8055155689022017
+      }
+    },
+    {
+      "value": 0.017315219633552304,
+      "params": {
+        "signal_config": "C only",
+        "alpha": 0.048499528611333075
+      }
+    },
+    {
+      "value": -0.04405497743835394,
+      "params": {
+        "signal_config": "A + C",
+        "alpha": 0.00033300900242830864
+      }
+    },
+    {
+      "value": 0.048811843646020196,
+      "params": {
+        "signal_config": "A + B",
+        "alpha": 0.5101990298329216
+      }
+    },
+    {
+      "value": null,
+      "params": {
+        "signal_config": "C only",
+        "alpha": 0.9656853588435758
+      }
+    },
+    {
+      "value": -0.026948517825214683,
+      "params": {
+        "signal_config": "C only",
+        "alpha": 0.0049175623391502915
+      }
+    },
+    {
+      "value": 0.08515643379405859,
+      "params": {
+        "signal_config": "C only",
+        "alpha": 0.09677469014834612
+      }
+    },
+    {
+      "value": null,
+      "params": {
+        "signal_config": "C only",
+        "alpha": 0.8030361509980521
+      }
+    },
+    {
+      "value": -0.02380720552346009,
+      "params": {
+        "signal_config": "C only",
+        "alpha": 0.02059448508443029
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "run_id": "2026-06-11_13-48-31_Linear_seed42",
+  "timestamp": "2026-06-11T13:48:31.062928",
+  "model": "Linear",
+  "seed": 42,
+  "horizon": 30,
+  "signals_meta": {
+    "use_set_a": true,
+    "use_set_b": true,
+    "use_set_c": true
+  },
+  "position_mode": "cost_aware",
+  "cost_bps": 1.0,
+  "n_features": 83,
+  "n_train": 62,
+  "n_val": 13,
+  "n_test": 14,
+  "date_test_start": "2024-09-19",
+  "date_test_end": "2026-04-16",
+  "weights_path": "../data/weights/Linear_h30.pt",
+  "metrics": {
+    "IC_in": 0.5022463467618421,
+    "IC_out": 0.31565524673058476,
+    "RankIC_out": 0.221978021978022,
+    "Sharpe_out": -0.015351513686975106,
+    "AnnRet_out": -0.00125547479391098,
+    "position_mode": null,
+    "cost_bps": 1.0
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "run_id": "2026-06-11_13-47-49_abl_h5_A_p_B_p_C_XGBoost_seed42",
+  "timestamp": "2026-06-11T13:47:49.078224",
+  "model": "abl_h5_A_p_B_p_C_XGBoost",
+  "seed": 42,
+  "horizon": 5,
+  "signals_meta": {
+    "use_set_a": true,
+    "use_set_b": true,
+    "use_set_c": true
+  },
+  "position_mode": "cost_aware",
+  "cost_bps": 1.0,
+  "n_features": 93,
+  "n_train": 374,
+  "n_val": 80,
+  "n_test": 81,
+  "date_test_start": "2024-10-17",
+  "date_test_end": "2026-06-02",
+  "weights_path": "../data/weights/abl_h5_A_p_B_p_C_XGBoost_h5.pt",
+  "metrics": {
+    "IC_in": 0.7168956376705973,
+    "IC_out": 0.1396583712613186,
+    "RankIC_out": 0.09561751650889418,
+    "Sharpe_out": 0.5398217410441157,
+    "AnnRet_out": 0.07246398684361743,
+    "position_mode": null,
+    "cost_bps": 1.0
+  }
+}

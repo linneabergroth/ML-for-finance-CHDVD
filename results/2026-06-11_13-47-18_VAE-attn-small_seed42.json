@@ -1,0 +1,30 @@
+{
+  "run_id": "2026-06-11_13-47-18_VAE-attn-small_seed42",
+  "timestamp": "2026-06-11T13:47:18.400164",
+  "model": "VAE-attn-small",
+  "seed": 42,
+  "horizon": 5,
+  "signals_meta": {
+    "use_set_a": true,
+    "use_set_b": true,
+    "use_set_c": true
+  },
+  "position_mode": "cost_aware",
+  "cost_bps": 1.0,
+  "n_features": 83,
+  "n_train": 374,
+  "n_val": 80,
+  "n_test": 81,
+  "date_test_start": "2024-10-17",
+  "date_test_end": "2026-06-02",
+  "weights_path": "../data/weights/VAE-attn-small_h5.pt",
+  "metrics": {
+    "IC_in": -0.044083561617812836,
+    "IC_out": 0.1656898679023639,
+    "RankIC_out": 0.11224028906955735,
+    "Sharpe_out": 1.1362450788836846,
+    "AnnRet_out": 0.1512335315035127,
+    "position_mode": null,
+    "cost_bps": 1.0
+  }
+}
