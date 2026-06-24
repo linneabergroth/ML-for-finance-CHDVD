@@ -59,78 +59,81 @@ def set_seed(seed: int = SEED) -> None:
 # Data
 # --------------------------------------------------------------------------- #
 # Benchmark / traded instrument: iShares Swiss Dividend ETF (the "index").
-BENCHMARK_TICKER = "CHDVD.SW"
+BENCHMARK_TICKER = "^SPX"
 
 # Full equity holdings of CHDVD.SW (iShares Swiss Dividend ETF).
 # Source: https://www.ishares.com/ch/individual/en/products/264108/
 # Cash, collateral and futures positions are excluded.
 # Re-run extract_data.py after changing this list.
-HOLDINGS = [
-    # Top 10 by ETF weight (~96% of NAV) — full history available from START_DATE.
-    "ZURN.SW",  # Zurich Insurance Group    ~15.1%
-    "ROP.SW",   # Roche PS (participation cert, ISIN CH1499059983) ~15.0% — was ROG.SW before 2026-03-17
-    "NOVN.SW",  # Novartis                  ~14.1%
-    "NESN.SW",  # Nestlé                    ~14.1%
-    "HOLN.SW",  # Holcim                    ~11.1%
-    "SREN.SW",  # Swiss Re                  ~ 9.6%
-    "SLHN.SW",  # Swiss Life                ~ 6.0%
-    "SIKA.SW",  # Sika                      ~ 3.4%
-    "HBAN.SW",  # Helvetia Baloise Holding  ~ 3.2% — was HELN.SW before 2025-12-05
-    "GIVN.SW",  # Givaudan                  ~ 3.1%
-    # Remaining small-cap holdings excluded (each <1% of NAV):
-    # "GALE.SW",  # 0.6% — IPO 2017, shortens usable history by ~4 years
-    # "BION.SW",  # 0.6%
-    # "DKSH.SW",  # 0.5%
-    # "BKW.SW",   # 0.4%
-    # "SUN.SW",   # 0.4%
-    # "EFGN.SW",  # 0.4%
-    # "BUCN.SW",  # 0.4%
-    # "BCHN.SW",  # 0.3%
-    # "ALSN.SW",  # 0.2%
-    # "KARN.SW",  # 0.2%
-]
+HOLDINGS = []
+# HOLDINGS = [
+#     # Top 10 by ETF weight (~96% of NAV) — full history available from START_DATE.
+#     "ZURN.SW",  # Zurich Insurance Group    ~15.1%
+#     "ROP.SW",   # Roche PS (participation cert, ISIN CH1499059983) ~15.0% — was ROG.SW before 2026-03-17
+#     "NOVN.SW",  # Novartis                  ~14.1%
+#     "NESN.SW",  # Nestlé                    ~14.1%
+#     "HOLN.SW",  # Holcim                    ~11.1%
+#     "SREN.SW",  # Swiss Re                  ~ 9.6%
+#     "SLHN.SW",  # Swiss Life                ~ 6.0%
+#     "SIKA.SW",  # Sika                      ~ 3.4%
+#     "HBAN.SW",  # Helvetia Baloise Holding  ~ 3.2% — was HELN.SW before 2025-12-05
+#     "GIVN.SW",  # Givaudan                  ~ 3.1%
+#     # Remaining small-cap holdings excluded (each <1% of NAV):
+#     # "GALE.SW",  # 0.6% — IPO 2017, shortens usable history by ~4 years
+#     # "BION.SW",  # 0.6%
+#     # "DKSH.SW",  # 0.5%
+#     # "BKW.SW",   # 0.4%
+#     # "SUN.SW",   # 0.4%
+#     # "EFGN.SW",  # 0.4%
+#     # "BUCN.SW",  # 0.4%
+#     # "BCHN.SW",  # 0.3%
+#     # "ALSN.SW",  # 0.2%
+#     # "KARN.SW",  # 0.2%
+# ]
 
 # Handle when a SIX ticker changed symbol, we download both
 # halves and concatenate at the switch date. Key = current (new) ticker in HOLDINGS.
 # Approximate ETF weights from the iShares fact sheet (as of 2026-06).
 # Used as fallback when yfinance can't return live weights for CHDVD.SW.
-HOLDING_WEIGHTS: dict[str, float] = {
-    "ZURN.SW": 15.06,
-    "ROP.SW":  14.97,
-    "NOVN.SW": 14.07,
-    "NESN.SW": 14.07,
-    "HOLN.SW": 11.07,
-    "SREN.SW":  9.61,
-    "SLHN.SW":  5.98,
-    "SIKA.SW":  3.41,
-    "HBAN.SW":  3.19,
-    "GIVN.SW":  3.10,
-    # "GALE.SW": 0.63,  # dropped: IPO 2017, shortens usable history by ~4 years
-    "BION.SW":  0.56,
-    "DKSH.SW":  0.53,
-    "BKW.SW":   0.45,
-    "SUN.SW":   0.43,
-    "EFGN.SW":  0.40,
-    "BUCN.SW":  0.37,
-    "BCHN.SW":  0.28,
-    "ALSN.SW":  0.23,
-    "KARN.SW":  0.23,
-}
+HOLDING_WEIGHTS: dict[str, float] = {}
+# HOLDING_WEIGHTS: dict[str, float] = {
+#     "ZURN.SW": 15.06,
+#     "ROP.SW":  14.97,
+#     "NOVN.SW": 14.07,
+#     "NESN.SW": 14.07,
+#     "HOLN.SW": 11.07,
+#     "SREN.SW":  9.61,
+#     "SLHN.SW":  5.98,
+#     "SIKA.SW":  3.41,
+#     "HBAN.SW":  3.19,
+#     "GIVN.SW":  3.10,
+#     # "GALE.SW": 0.63,  # dropped: IPO 2017, shortens usable history by ~4 years
+#     "BION.SW":  0.56,
+#     "DKSH.SW":  0.53,
+#     "BKW.SW":   0.45,
+#     "SUN.SW":   0.43,
+#     "EFGN.SW":  0.40,
+#     "BUCN.SW":  0.37,
+#     "BCHN.SW":  0.28,
+#     "ALSN.SW":  0.23,
+#     "KARN.SW":  0.23,
+# }
 
-STITCHES: dict[str, dict[str, str]] = {
-    "ROP.SW": {
-        "old": "ROG.SW",
-        "switch": "2026-03-17",
-        "note": "Roche Genussschein (ROG) relisted as participation cert (ROP) on 2026-03-17",
-    },
-    "HBAN.SW": {
-        "old": "HELN.SW",
-        "switch": "2025-12-05",
-        "note": "Helvetia Holding merged with Baloise; new entity HBAN listed on 2025-12-05",
-    },
-}
+# STITCHES: dict[str, dict[str, str]] = {
+#     "ROP.SW": {
+#         "old": "ROG.SW",
+#         "switch": "2026-03-17",
+#         "note": "Roche Genussschein (ROG) relisted as participation cert (ROP) on 2026-03-17",
+#     },
+#     "HBAN.SW": {
+#         "old": "HELN.SW",
+#         "switch": "2025-12-05",
+#         "note": "Helvetia Holding merged with Baloise; new entity HBAN listed on 2025-12-05",
+#     },
+# }
+STITCHES: dict[str, dict[str, str]] = {}
 
-START_DATE = "2014-04-28"
+START_DATE = "2010-01-04"
 END_DATE = None  # None -> up to today
 
 # --------------------------------------------------------------------------- #
@@ -138,7 +141,7 @@ END_DATE = None  # None -> up to today
 # --------------------------------------------------------------------------- #
 PAST_WINDOW = 20          # trailing daily returns fed to the model
 HORIZON = 1               # predict the 1-day (daily) compounded return
-HORIZONS = (1, 5, 15, 30) # horizon ablation values (trading days)
+HORIZONS = (1, 5, 10, 30) # horizon ablation values (trading days) (1, 5, 10, 30)  
 ROLL_WINDOWS = (50, 200, 365)  # windows for rolling indicators
 
 # Chronological split fractions (no shuffling -> no look-ahead leakage).
@@ -148,14 +151,19 @@ VAL_FRAC = 0.15
 
 # Signal ablation configuration
 SIGNAL_CONFIGS: dict[str, dict] = {
-    'A only':     dict(use_set_a=True,  use_set_b=False, use_set_c=False),
-    'B only':     dict(use_set_a=False, use_set_b=True,  use_set_c=False),
-    'C only':     dict(use_set_a=False, use_set_b=False, use_set_c=True),
-    'A + B':      dict(use_set_a=True,  use_set_b=True,  use_set_c=False),
-    'A + C':      dict(use_set_a=True,  use_set_b=False, use_set_c=True),
-    'B + C':      dict(use_set_a=False, use_set_b=True,  use_set_c=True),
-    'A + B + C':  dict(use_set_a=True,  use_set_b=True,  use_set_c=True),
-    'No signals': dict(use_set_a=False, use_set_b=False, use_set_c=False),
+    'A only':     dict(use_set_a=True,  use_set_b=False, use_set_c=False, use_set_m=False),
+    'B only':     dict(use_set_a=False, use_set_b=True,  use_set_c=False, use_set_m=False),
+    'C only':     dict(use_set_a=False, use_set_b=False, use_set_c=True,  use_set_m=False),
+    'M only':     dict(use_set_a=False, use_set_b=False, use_set_c=False, use_set_m=True),
+    'A + B':      dict(use_set_a=True,  use_set_b=True,  use_set_c=False, use_set_m=False),
+    'A + C':      dict(use_set_a=True,  use_set_b=False, use_set_c=True,  use_set_m=False),
+    'B + C':      dict(use_set_a=False, use_set_b=True,  use_set_c=True,  use_set_m=False),
+    'A + M':      dict(use_set_a=True,  use_set_b=False, use_set_c=False, use_set_m=True),
+    'B + M':      dict(use_set_a=False, use_set_b=True,  use_set_c=False, use_set_m=True),
+    'C + M':      dict(use_set_a=False, use_set_b=False, use_set_c=True,  use_set_m=True),
+    'A + B + C':  dict(use_set_a=True,  use_set_b=True,  use_set_c=True, use_set_m=False),
+    'A + B + C + M': dict(use_set_a=True,  use_set_b=True,  use_set_c=True, use_set_m=True),
+    'No signals': dict(use_set_a=False, use_set_b=False, use_set_c=False, use_set_m=False),
 }
 ABLATION_MODELS = ('Linear', 'XGBoost', 'VAE-medium')
 

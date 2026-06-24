@@ -35,7 +35,7 @@ from sklearn.preprocessing import StandardScaler
 
 from utils.config import Config
 from utils.features import make_features
-from utils.signals import signal_set_a, signal_set_b, signal_set_c, signals_to_positions
+from utils.signals import signal_set_a, signal_set_b, signal_set_c, signal_set_macro, signals_to_positions   
 
 
 @dataclass
@@ -68,7 +68,6 @@ class SplitData:
         y_scaled = np.asarray(y_scaled).reshape(-1, 1)
         return self.y_scaler.inverse_transform(y_scaled).ravel()
 
-
 def build_feature_frame(
     prices: pd.Series,
     returns: pd.Series,
@@ -76,16 +75,12 @@ def build_feature_frame(
     use_set_a: bool = True,
     use_set_b: bool = True,
     use_set_c: bool = True,
+    use_set_m: bool = True,
+    macro_df: pd.DataFrame | None = None,
     extra_signals: pd.DataFrame | None = None,
     holding_prices: pd.DataFrame | None = None,
 ) -> tuple[pd.DataFrame, pd.Series]:
-    """Assemble the aligned (X, y) frame before scaling / splitting.
-
-    Signal sets A/B/C as raw features.
-
-    extra_signals: pre-computed Set D signals (requires OHLCV), treated as sig_d.
-    holding_prices: close-price panel of ETF constituents (optional).
-    """
+    """Assemble the aligned (X, y) frame before scaling / splitting."""
     feats = make_features(
         prices, returns,
         holding_prices=holding_prices,
@@ -101,6 +96,9 @@ def build_feature_frame(
         sig_kwargs = {**sig_kwargs, **signal_set_b(prices, returns)}
     if use_set_c:
         sig_kwargs = {**sig_kwargs, **signal_set_c(prices, returns)}
+    if use_set_m and macro_df is not None:
+        sig_kwargs = {**sig_kwargs, **signal_set_macro(macro_df, prices.index)}
+
 
     merged_signals = pd.DataFrame(sig_kwargs, index=prices.index).add_prefix("pos_raw_")
 
@@ -115,35 +113,57 @@ def build_feature_frame(
 def make_splits(
     prices: pd.Series,
     returns: pd.Series,
-    cfg: Config,
+    cfg: 'Config',
     use_set_a: bool = True,
     use_set_b: bool = True,
     use_set_c: bool = True,
+    use_set_m: bool = True,
     extra_signals: pd.DataFrame | None = None,
     holding_prices: pd.DataFrame | None = None,
+    macro_df: pd.DataFrame | None = None,  # NEW ARGUMENT
     pca_n_components: int = 20,
     pca_variance_threshold: float = 0.95,
     pca_all_features: bool = False,
-) -> SplitData:
-    """Build chronological train/val/test splits with train-fit scalers + PCA.
-
-    PCA parameters
-    --------------
-    pca_n_components      : hard upper bound on the number of PCA components kept.
-    pca_variance_threshold: stop adding components once cumulative variance >= this.
-                            The final n_pca = min(n_components, threshold_components).
-    pca_all_features      : if True, apply PCA to ALL features (bench + pos + hold).
-                            If False (default), only holding + cross-sectional features
-                            are compressed; benchmark and signal-position columns pass
-                            through unchanged.
-    """
+) -> 'SplitData':
+    
+    # 1. Build base technical and holding features
+    # FIX: Explicitly name all arguments to prevent positional misalignments
     X, y = build_feature_frame(
-        prices, returns, cfg, use_set_a, use_set_b, use_set_c,
-        extra_signals, holding_prices,
+        prices=prices, 
+        returns=returns, 
+        cfg=cfg, 
+        use_set_a=use_set_a, 
+        use_set_b=use_set_b, 
+        use_set_c=use_set_c, 
+        extra_signals=extra_signals, 
+        holding_prices=holding_prices,
+        macro_df=macro_df if use_set_m else None,
     )
 
-    # Non-overlapping subsampling for horizon > 1 (Option A).
-    # Row j covers [j, j+k), row j+k covers [j+k, j+2k) — no target overlap.
+    # 2. NEW: Safely integrate macro features preventing look-ahead bias
+    if macro_df is not None:
+        # Strip timezones and ensure strict datetime indices
+        X.index = pd.to_datetime(X.index).tz_localize(None).normalize()
+        macro_df.index = pd.to_datetime(macro_df.index).tz_localize(None).normalize()
+        
+        X = X.sort_index()
+        macro_df = macro_df.sort_index()
+        
+        # Map weekly macro data onto daily pipeline dates
+        X_merged = pd.merge_asof(
+            X, 
+            macro_df, 
+            left_index=True, 
+            right_index=True, 
+            direction='backward'
+        )
+        
+        # Drop rows where macro data isn't available yet, and re-align y
+        X = X_merged.dropna()
+        y = y.loc[X.index]
+        print(f"  Merged macro signals. Final dataset size: {len(X)} rows.")
+
+    # 3. Non-overlapping subsampling for horizon > 1
     if cfg.horizon > 1:
         X = X.iloc[::cfg.horizon]
         y = y.iloc[::cfg.horizon]
@@ -160,15 +180,17 @@ def make_splits(
     bench_pfx = str(prices.name or "CHDVD.SW").replace(".", "_") + "_"
     bench_cols = [c for c in X.columns if c.startswith(bench_pfx) or c.startswith("ret_lag_")]
     pos_cols   = [c for c in X.columns if c.startswith("pos_")]
-    hold_cols  = [c for c in X.columns if c not in bench_cols and c not in pos_cols]
+    macro_cols = [c for c in X.columns if c.startswith("xs_macro_")] # Isolate macros
+    
+    hold_cols  = [c for c in X.columns if c not in bench_cols and c not in pos_cols and c not in macro_cols]
 
-    # pca_cols: columns fed into the PCA; bp_cols: columns kept as-is
     if pca_all_features:
         pca_cols = list(X.columns)
         bp_cols  = []
     else:
         pca_cols = hold_cols
-        bp_cols  = bench_cols + pos_cols
+        # Bypass PCA for bench, pos, AND macro columns
+        bp_cols  = bench_cols + pos_cols + macro_cols
 
     # ── Scalers (fit on train only) ──────────────────────────────────────────
     y_scaler = StandardScaler().fit(ytr.values.reshape(-1, 1))
@@ -181,29 +203,13 @@ def make_splits(
     if pca_cols and pca_n_components > 0:
         max_comp = min(len(pca_cols), i_tr - 1)
         hold_sc = StandardScaler().fit(Xtr[pca_cols].fillna(0).values)
-        # Fit temporary full PCA to find variance-threshold cutoff
-        _pca_tmp = PCA(n_components=max_comp).fit(
-            hold_sc.transform(Xtr[pca_cols].fillna(0).values)
-        )
+        _pca_tmp = PCA(n_components=max_comp).fit(hold_sc.transform(Xtr[pca_cols].fillna(0).values))
         cumvar = np.cumsum(_pca_tmp.explained_variance_ratio_)
         n_thresh = int(np.searchsorted(cumvar, min(pca_variance_threshold, 1.0)) + 1)
         n_pca = min(pca_n_components, n_thresh, max_comp)
-        hold_pca = PCA(n_components=n_pca).fit(
-            hold_sc.transform(Xtr[pca_cols].fillna(0).values)
-        )
+        hold_pca = PCA(n_components=n_pca).fit(hold_sc.transform(Xtr[pca_cols].fillna(0).values))
         pca_expvar = hold_pca.explained_variance_ratio_
-        scope = "all features" if pca_all_features else "holding features"
-        print(
-            f"  PCA on {len(pca_cols)} {scope} "
-            f"→ {n_pca} components  "
-            f"({pca_expvar.sum():.1%} variance explained  "
-            f"|  threshold={pca_variance_threshold:.0%}, max={pca_n_components})"
-        )
-        cumvar_kept = np.cumsum(pca_expvar)
-        for i, (ev, cv) in enumerate(zip(pca_expvar, cumvar_kept)):
-            print(f"    PC{i + 1:>2}: {ev:.3%}  cumulative {cv:.3%}")
 
-    # x_scaler: the main pass-through scaler (or hold_sc when pca_all_features)
     if bp_cols:
         x_scaler = StandardScaler().fit(Xtr[bp_cols].fillna(0).values)
     else:
@@ -215,9 +221,7 @@ def make_splits(
         if bp_cols:
             parts.append(x_scaler.transform(df[bp_cols].fillna(0).values))
         if hold_pca is not None:
-            parts.append(
-                hold_pca.transform(hold_sc.transform(df[pca_cols].fillna(0).values))
-            )
+            parts.append(hold_pca.transform(hold_sc.transform(df[pca_cols].fillna(0).values)))
         return np.concatenate(parts, axis=1).astype(np.float32)
 
     def sy(d: pd.Series) -> np.ndarray:

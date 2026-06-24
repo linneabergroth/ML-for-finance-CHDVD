@@ -17,6 +17,7 @@ Set B — Mean-reversion / Volatility
     RSI, Bollinger bands, volatility-clustering regime.
 Set C — Statistical / Regime
     Autocorrelation, skewness, volatility-of-volatility.
+
 """
 
 from __future__ import annotations
@@ -52,6 +53,11 @@ SIGNAL_HYPERPARAMS: dict[str, dict] = {
                            "position_rule": "sign(skew): -1=crash-risk tail"},
     "vov_ratio_20_60":    {"set": "C", "fast_window": 20, "slow_window": 60, "flat_thr": 1.2,
                            "position_rule": "0 (flat) if ratio > 1.2 (regime instability), else +1"},
+    # ── Set M: Macro ─────────────────────────────────────────────────────────
+    "macro_mkt_trend":    {"set": "M", 
+                           "position_rule": "sign(_MKT_LogRet) (follow broader market trend)"},
+    "macro_vol_regime":   {"set": "M", "vol_thr": 0.02, 
+                           "position_rule": "-1 if Vol_5d > 0.02 (risk-off), else 1"},
 }
 
 
@@ -145,12 +151,46 @@ def signal_set_c(prices: pd.Series, returns: pd.Series) -> pd.DataFrame:
     return df.replace([np.inf, -np.inf], np.nan)
 
 # --------------------------------------------------------------------------- #
+# Set M — Macroeconomic / Exogenous
+# --------------------------------------------------------------------------- #
+def signal_set_macro(macro_df: pd.DataFrame, target_index: pd.DatetimeIndex) -> pd.DataFrame:
+    """Macroeconomic signals (raw values, safely aligned to daily trading days)."""
+    
+    # Create an empty DataFrame with the daily trading index
+    target_df = pd.DataFrame(index=pd.to_datetime(target_index).tz_localize(None).normalize())
+    macro_clean = macro_df.copy()
+    macro_clean.index = pd.to_datetime(macro_clean.index).tz_localize(None).normalize()
+    
+    # Sort indices strictly for merge_asof
+    target_df = target_df.sort_index()
+    macro_clean = macro_clean.sort_index()
+    
+    # Map weekly macro data onto daily pipeline dates (backward mapping)
+    aligned_macro = pd.merge_asof(
+        target_df, 
+        macro_clean, 
+        left_index=True, 
+        right_index=True, 
+        direction='backward'
+    ).ffill()
+    
+    # Reattach original index structure (in case it had timezones)
+    aligned_macro.index = target_index
+    
+    # Automatically add the trusted prefix if the raw data doesn't have it yet
+    if not all(c.startswith("xs_macro_") for c in aligned_macro.columns):
+        aligned_macro = aligned_macro.add_prefix("xs_macro_")
+        
+    return aligned_macro.replace([np.inf, -np.inf], np.nan)
+
+# --------------------------------------------------------------------------- #
 # Position rules — convert raw signals to {-1, 0, +1} trading rules
 # --------------------------------------------------------------------------- #
 def signals_to_positions(
     sig_a: pd.DataFrame | None = None,
     sig_b: pd.DataFrame | None = None,
     sig_c: pd.DataFrame | None = None,
+    sig_macro: pd.DataFrame | None = None,
 ) -> pd.DataFrame:
     """Convert raw signal values to discrete position rules in {-1, 0, +1}.
 
@@ -208,10 +248,26 @@ def signals_to_positions(
             np.where(sig_c["vov_ratio_20_60"] > 1.2, 0.0, 1.0),
             index=sig_c.index,
         )
-
+    
+    # ── Set M: Macroeconomic ─────────────────────────────────────────────────
+    if sig_macro is not None:
+        if idx is None:
+            idx = sig_macro.index
+            
+        # Rule 1: Broad Market Trend Follower (using _MKT_LogRet)
+        if "xs_macro__MKT_LogRet" in sig_macro.columns:
+            out["pos_macro_mkt"] = np.sign(sig_macro["xs_macro__MKT_LogRet"])
+            
+        # Rule 2: Volatility Panic Threshold (using Vol_5d)
+        # If short-term macro volatility spikes above a threshold, hedge/short (-1)
+        if "xs_macro_Vol_5d" in sig_macro.columns:
+            out["pos_macro_vol"] = pd.Series(
+                np.where(sig_macro["xs_macro_Vol_5d"] > 0.02, -1.0, 1.0),
+                index=sig_macro.index,
+            )
 
     if idx is None:
-        raise ValueError("At least one signal set (sig_a/b/c/d) must be provided.")
+        raise ValueError("At least one signal set (sig_a/b/c/d/macro) must be provided.")
 
     return pd.DataFrame(
         {
@@ -230,12 +286,10 @@ def build_signals(
     use_set_a: bool = True,
     use_set_b: bool = True,
     use_set_c: bool = False,
+    use_set_m: bool = True,
+    macro_df: pd.DataFrame | None = None, # NEW ARGUMENT
 ) -> pd.DataFrame:
-    """Concatenate raw signal values for the requested sets (A/B/C).
-
-    Prefer signals_to_positions() when building ML feature matrices.
-    Use this when you need the raw indicator values (e.g. ablation plots).
-    """
+    """Concatenate raw signal values for the requested sets."""
     parts = []
     if use_set_a:
         parts.append(signal_set_a(prices, returns))
@@ -243,6 +297,9 @@ def build_signals(
         parts.append(signal_set_b(prices, returns))
     if use_set_c:
         parts.append(signal_set_c(prices, returns))
+    if use_set_m and macro_df is not None:
+        parts.append(signal_set_macro(macro_df, prices.index))
+        
     if not parts:
-        raise ValueError("Select at least one signal set (A, B, or C).")
+        raise ValueError("Select at least one signal set (A, B, C, or Macro).")
     return pd.concat(parts, axis=1)
