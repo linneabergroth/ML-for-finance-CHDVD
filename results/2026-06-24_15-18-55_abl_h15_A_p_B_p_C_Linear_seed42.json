@@ -1,0 +1,30 @@
+{
+  "run_id": "2026-06-24_15-18-55_abl_h15_A_p_B_p_C_Linear_seed42",
+  "timestamp": "2026-06-24T15:18:55.163244",
+  "model": "abl_h15_A_p_B_p_C_Linear",
+  "seed": 42,
+  "horizon": 15,
+  "signals_meta": {
+    "use_set_a": true,
+    "use_set_b": true,
+    "use_set_c": true
+  },
+  "position_mode": "cost_aware",
+  "cost_bps": 1.0,
+  "n_features": 73,
+  "n_train": 175,
+  "n_val": 38,
+  "n_test": 38,
+  "date_test_start": "2024-02-27",
+  "date_test_end": "2026-05-14",
+  "weights_path": "../data/weights/abl_h15_A_p_B_p_C_Linear_h15.pt",
+  "metrics": {
+    "IC_in": null,
+    "IC_out": null,
+    "RankIC_out": null,
+    "Sharpe_out": 1.3379078444259993,
+    "AnnRet_out": 0.17694308365199984,
+    "position_mode": null,
+    "cost_bps": 1.0
+  }
+}
