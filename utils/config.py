@@ -141,7 +141,7 @@ END_DATE = None  # None -> up to today
 # --------------------------------------------------------------------------- #
 PAST_WINDOW = 20          # trailing daily returns fed to the model
 HORIZON = 1               # predict the 1-day (daily) compounded return
-HORIZONS = (1, 5, 15, 30) # horizon ablation values (trading days) (1, 5, 10, 30)  
+HORIZONS = (1, 5, 10, 30)  # horizon ablation values (trading days) (1, 5, 10, 30)  
 ROLL_WINDOWS = (50, 200, 365)  # windows for rolling indicators
 
 # Chronological split fractions (no shuffling -> no look-ahead leakage).

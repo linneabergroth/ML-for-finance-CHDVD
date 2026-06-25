@@ -15,7 +15,7 @@ Sharpe, and annualized return.
 
 ```bash
 # 1) Go to repo root
-cd /tmp/workspace/vstrozzi/ml_for_finance
+cd ML-for-finance-CHDVD
 
 # 2) Create environment (recommended)
 python3.11 -m venv .venv
@@ -29,7 +29,7 @@ pip install -r requirements.txt
 Alternative (conda):
 
 ```bash
-cd /tmp/workspace/vstrozzi/ml_for_finance
+cd ML-for-finance-CHDVD
 conda env create -f environment.yml
 conda activate mlfin
 ```
@@ -37,9 +37,9 @@ conda activate mlfin
 ### How to run the repository
 
 ```bash
-cd /tmp/workspace/vstrozzi/ml_for_finance
+cd ML-for-finance-CHDVD
 
-# (A) Download market data (CHDVD.SW + holdings)
+# (A) Download market data (^SPX)
 python utils/extract_data.py
 
 # (B) Clean/impute missing values (default: ffill)
@@ -66,6 +66,10 @@ ml_for_finance/
 ├── model.py                    # Linear, XGBoost, MaskedVAE models
 ├── test.py                     # sanity tests
 ├── notebooks/
+│   ├──FA
+│   │  ├── ml_baselines.ipynb
+│   │  ├── process_sp500.ipynb
+│   │  └── stat_baselines.ipynb
 │   └── pipeline.ipynb          # main end-to-end workflow
 ├── utils/
 │   ├── config.py               # paths, tickers, seeds, hyperparameters
@@ -106,6 +110,6 @@ ml_for_finance/
 ### Quick check
 
 ```bash
-cd /tmp/workspace/vstrozzi/ml_for_finance
+cd ML-for-finance-CHDVD
 pytest -q test.py
 ```
