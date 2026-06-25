@@ -1,0 +1,31 @@
+{
+  "run_id": "2026-06-25_16-18-22_VAE-Attn-tuned_seed42",
+  "timestamp": "2026-06-25T16:18:22.723373",
+  "model": "VAE-Attn-tuned",
+  "seed": 42,
+  "horizon": 1,
+  "signals_meta": {
+    "use_set_a": false,
+    "use_set_b": false,
+    "use_set_c": true,
+    "use_set_m": false
+  },
+  "position_mode": "sign",
+  "cost_bps": 1.0,
+  "n_features": 67,
+  "n_train": 2643,
+  "n_val": 567,
+  "n_test": 567,
+  "date_test_start": "2024-03-19",
+  "date_test_end": "2026-06-23",
+  "weights_path": "../data/weights/VAE-Attn-tuned_h1.pt",
+  "metrics": {
+    "IC_in": 0.04514922519399591,
+    "IC_out": 0.08447200060700111,
+    "RankIC_out": 0.01103934166443498,
+    "Sharpe_out": 0.6805518590925249,
+    "AnnRet_out": 0.10894229065149832,
+    "position_mode": null,
+    "cost_bps": 1.0
+  }
+}

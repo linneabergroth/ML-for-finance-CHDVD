@@ -1,0 +1,31 @@
+{
+  "run_id": "2026-06-25_14-30-10_VAE-tiny_seed42",
+  "timestamp": "2026-06-25T14:30:10.569101",
+  "model": "VAE-tiny",
+  "seed": 42,
+  "horizon": 1,
+  "signals_meta": {
+    "use_set_a": true,
+    "use_set_b": true,
+    "use_set_c": true,
+    "use_set_m": true
+  },
+  "position_mode": "cost_aware",
+  "cost_bps": 1.0,
+  "n_features": 102,
+  "n_train": 2643,
+  "n_val": 567,
+  "n_test": 567,
+  "date_test_start": "2024-03-19",
+  "date_test_end": "2026-06-23",
+  "weights_path": "../data/weights/VAE-tiny_h1.pt",
+  "metrics": {
+    "IC_in": 0.06304869127826379,
+    "IC_out": 0.027883303180993302,
+    "RankIC_out": 0.043295567147157245,
+    "Sharpe_out": 0.9406251289524193,
+    "AnnRet_out": 0.15050294457182803,
+    "position_mode": null,
+    "cost_bps": 1.0
+  }
+}

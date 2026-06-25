@@ -1,0 +1,31 @@
+{
+  "run_id": "2026-06-25_16-16-11_Linear-tuned_seed42",
+  "timestamp": "2026-06-25T16:16:11.728139",
+  "model": "Linear-tuned",
+  "seed": 42,
+  "horizon": 1,
+  "signals_meta": {
+    "use_set_a": false,
+    "use_set_b": false,
+    "use_set_c": true,
+    "use_set_m": false
+  },
+  "position_mode": "sign",
+  "cost_bps": 1.0,
+  "n_features": 67,
+  "n_train": 2643,
+  "n_val": 567,
+  "n_test": 567,
+  "date_test_start": "2024-03-19",
+  "date_test_end": "2026-06-23",
+  "weights_path": "../data/weights/Linear-tuned_h1.pt",
+  "metrics": {
+    "IC_in": 0.30318604970275387,
+    "IC_out": 0.056025052772342876,
+    "RankIC_out": 0.0020015394026243576,
+    "Sharpe_out": 0.08485984976388089,
+    "AnnRet_out": 0.01359940523188581,
+    "position_mode": null,
+    "cost_bps": 1.0
+  }
+}

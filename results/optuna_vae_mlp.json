@@ -1,5 +1,5 @@
 {
-  "best_value": 0.08975787424484158,
+  "best_value": 0.0888385510933682,
   "best_params": {
     "signal_config": "A + B + C + M",
     "latent_dim": 8,
@@ -9,7 +9,7 @@
   },
   "trials": [
     {
-      "value": 0.0451236863162622,
+      "value": 0.044808337012263,
       "params": {
         "signal_config": "A + B + C + M",
         "latent_dim": 8,
@@ -19,7 +19,7 @@
       }
     },
     {
-      "value": 0.025171289134324475,
+      "value": 0.024348162210959867,
       "params": {
         "signal_config": "B + C",
         "latent_dim": 32,
@@ -29,7 +29,7 @@
       }
     },
     {
-      "value": 0.0057313941134194985,
+      "value": 0.007139528647235856,
       "params": {
         "signal_config": "No signals",
         "latent_dim": 16,
@@ -39,7 +39,7 @@
       }
     },
     {
-      "value": 0.012139442399688163,
+      "value": 0.010745933919756923,
       "params": {
         "signal_config": "No signals",
         "latent_dim": 8,
@@ -49,7 +49,7 @@
       }
     },
     {
-      "value": -0.025476135176866366,
+      "value": -0.027287946024217774,
       "params": {
         "signal_config": "No signals",
         "latent_dim": 32,
@@ -59,7 +59,7 @@
       }
     },
     {
-      "value": 0.03036981182246011,
+      "value": 0.029947003724554,
       "params": {
         "signal_config": "C + M",
         "latent_dim": 32,
@@ -69,7 +69,7 @@
       }
     },
     {
-      "value": -0.00041067704745190864,
+      "value": 0.0005281977499676637,
       "params": {
         "signal_config": "A + M",
         "latent_dim": 8,
@@ -79,7 +79,7 @@
       }
     },
     {
-      "value": 0.0314251948584076,
+      "value": 0.03089103163442607,
       "params": {
         "signal_config": "B + C",
         "latent_dim": 8,
@@ -89,7 +89,7 @@
       }
     },
     {
-      "value": 0.02971292014901763,
+      "value": 0.03084713142393597,
       "params": {
         "signal_config": "C only",
         "latent_dim": 8,
@@ -99,7 +99,7 @@
       }
     },
     {
-      "value": -0.010767844561614018,
+      "value": -0.012364707644256654,
       "params": {
         "signal_config": "A + M",
         "latent_dim": 32,
@@ -109,7 +109,7 @@
       }
     },
     {
-      "value": -0.005984752019703576,
+      "value": -0.005119611062262724,
       "params": {
         "signal_config": "A + B + C + M",
         "latent_dim": 16,
@@ -119,7 +119,7 @@
       }
     },
     {
-      "value": 0.04850880142781135,
+      "value": 0.04817730040331521,
       "params": {
         "signal_config": "A + B + C + M",
         "latent_dim": 8,
@@ -129,7 +129,7 @@
       }
     },
     {
-      "value": 0.03655789294600481,
+      "value": 0.03639827189792468,
       "params": {
         "signal_config": "A + B + C + M",
         "latent_dim": 8,
@@ -139,7 +139,7 @@
       }
     },
     {
-      "value": 0.0812188066826821,
+      "value": 0.08036042059760638,
       "params": {
         "signal_config": "A + B + C + M",
         "latent_dim": 8,
@@ -149,7 +149,7 @@
       }
     },
     {
-      "value": -0.02593833545938399,
+      "value": -0.024980163202103594,
       "params": {
         "signal_config": "M only",
         "latent_dim": 8,
@@ -159,7 +159,7 @@
       }
     },
     {
-      "value": 0.00276898391324284,
+      "value": 0.00288020374503695,
       "params": {
         "signal_config": "A + C",
         "latent_dim": 8,
@@ -169,7 +169,7 @@
       }
     },
     {
-      "value": -0.0016633203238490407,
+      "value": -0.0020151366615032327,
       "params": {
         "signal_config": "A only",
         "latent_dim": 16,
@@ -179,7 +179,7 @@
       }
     },
     {
-      "value": 0.03680326330264881,
+      "value": 0.037149219491152075,
       "params": {
         "signal_config": "B only",
         "latent_dim": 8,
@@ -189,7 +189,7 @@
       }
     },
     {
-      "value": -0.005620443403124292,
+      "value": -0.0064823402718648514,
       "params": {
         "signal_config": "A + B + C",
         "latent_dim": 8,
@@ -199,7 +199,7 @@
       }
     },
     {
-      "value": -0.008125048839783416,
+      "value": -0.008041151235351538,
       "params": {
         "signal_config": "B + M",
         "latent_dim": 16,
@@ -209,7 +209,7 @@
       }
     },
     {
-      "value": 0.03465283924634233,
+      "value": 0.03506402738724305,
       "params": {
         "signal_config": "A + B",
         "latent_dim": 8,
@@ -219,7 +219,7 @@
       }
     },
     {
-      "value": 0.03055065564288277,
+      "value": 0.03018768323446524,
       "params": {
         "signal_config": "A + B + C + M",
         "latent_dim": 8,
@@ -229,7 +229,7 @@
       }
     },
     {
-      "value": 0.047835863780903806,
+      "value": 0.047853632801932576,
       "params": {
         "signal_config": "A + B + C + M",
         "latent_dim": 8,
@@ -239,7 +239,7 @@
       }
     },
     {
-      "value": 0.06815076922914934,
+      "value": 0.06702656011197114,
       "params": {
         "signal_config": "A + B + C + M",
         "latent_dim": 8,
@@ -249,7 +249,7 @@
       }
     },
     {
-      "value": 0.08496161424685411,
+      "value": 0.08392681648777087,
       "params": {
         "signal_config": "A + B + C + M",
         "latent_dim": 8,
@@ -259,7 +259,7 @@
       }
     },
     {
-      "value": 0.07913301261223984,
+      "value": 0.07856529039092726,
       "params": {
         "signal_config": "A + B + C + M",
         "latent_dim": 8,
@@ -269,7 +269,7 @@
       }
     },
     {
-      "value": 0.012283855373501879,
+      "value": 0.013656775310228221,
       "params": {
         "signal_config": "B only",
         "latent_dim": 8,
@@ -279,7 +279,7 @@
       }
     },
     {
-      "value": 0.02499970617425277,
+      "value": 0.026387839614359226,
       "params": {
         "signal_config": "B + M",
         "latent_dim": 8,
@@ -289,7 +289,7 @@
       }
     },
     {
-      "value": -0.03548355526442414,
+      "value": -0.03559049846743851,
       "params": {
         "signal_config": "C + M",
         "latent_dim": 32,
@@ -299,7 +299,7 @@
       }
     },
     {
-      "value": -0.00669463955103604,
+      "value": -0.006703124095792973,
       "params": {
         "signal_config": "A + B + C + M",
         "latent_dim": 16,
@@ -309,7 +309,7 @@
       }
     },
     {
-      "value": 0.026871777998729748,
+      "value": 0.027612249346853326,
       "params": {
         "signal_config": "C only",
         "latent_dim": 8,
@@ -319,7 +319,7 @@
       }
     },
     {
-      "value": 0.06811215741621908,
+      "value": 0.0670037643269153,
       "params": {
         "signal_config": "A + B + C + M",
         "latent_dim": 8,
@@ -329,7 +329,7 @@
       }
     },
     {
-      "value": 0.08975787424484158,
+      "value": 0.0888385510933682,
       "params": {
         "signal_config": "A + B + C + M",
         "latent_dim": 8,
@@ -339,7 +339,7 @@
       }
     },
     {
-      "value": 0.07224168427741964,
+      "value": 0.07185143780149758,
       "params": {
         "signal_config": "A + B + C + M",
         "latent_dim": 8,
@@ -349,7 +349,7 @@
       }
     },
     {
-      "value": 0.03592215959352052,
+      "value": 0.03689394727621968,
       "params": {
         "signal_config": "A only",
         "latent_dim": 8,
@@ -359,7 +359,7 @@
       }
     },
     {
-      "value": -0.010883838055765432,
+      "value": -0.011575441663163268,
       "params": {
         "signal_config": "A + B",
         "latent_dim": 8,
@@ -369,7 +369,7 @@
       }
     },
     {
-      "value": 0.010180224094940123,
+      "value": 0.009248095622600627,
       "params": {
         "signal_config": "A + B + C",
         "latent_dim": 32,
@@ -379,7 +379,7 @@
       }
     },
     {
-      "value": 0.0008091447163545359,
+      "value": -0.0007101667780375735,
       "params": {
         "signal_config": "M only",
         "latent_dim": 8,
@@ -389,7 +389,7 @@
       }
     },
     {
-      "value": 0.06924133706348248,
+      "value": 0.06900871542075344,
       "params": {
         "signal_config": "A + C",
         "latent_dim": 16,
@@ -399,7 +399,7 @@
       }
     },
     {
-      "value": -0.018914220905600545,
+      "value": -0.018811948197453823,
       "params": {
         "signal_config": "B + C",
         "latent_dim": 32,
@@ -409,7 +409,7 @@
       }
     },
     {
-      "value": 0.001984615026222795,
+      "value": 0.0006382616526011756,
       "params": {
         "signal_config": "No signals",
         "latent_dim": 8,
@@ -419,7 +419,7 @@
       }
     },
     {
-      "value": 0.06890054853765495,
+      "value": 0.0685291404761475,
       "params": {
         "signal_config": "A + B + C + M",
         "latent_dim": 8,
@@ -429,7 +429,7 @@
       }
     },
     {
-      "value": 0.07441389616673022,
+      "value": 0.0736414336347985,
       "params": {
         "signal_config": "A + B + C + M",
         "latent_dim": 8,
@@ -439,7 +439,7 @@
       }
     },
     {
-      "value": 0.06981656678117623,
+      "value": 0.07014979209399906,
       "params": {
         "signal_config": "A + B + C + M",
         "latent_dim": 8,
@@ -449,7 +449,7 @@
       }
     },
     {
-      "value": 0.0511339347639037,
+      "value": 0.05066863620141558,
       "params": {
         "signal_config": "A + B + C + M",
         "latent_dim": 8,
@@ -459,7 +459,7 @@
       }
     },
     {
-      "value": 0.017488044962748233,
+      "value": 0.018091631956196428,
       "params": {
         "signal_config": "A + M",
         "latent_dim": 8,
@@ -469,7 +469,7 @@
       }
     },
     {
-      "value": 0.08771504273244973,
+      "value": 0.08687523410013728,
       "params": {
         "signal_config": "A + B + C + M",
         "latent_dim": 8,
@@ -479,7 +479,7 @@
       }
     },
     {
-      "value": -0.021518257204616267,
+      "value": -0.024510720056691748,
       "params": {
         "signal_config": "C + M",
         "latent_dim": 32,
@@ -489,7 +489,7 @@
       }
     },
     {
-      "value": 0.08267185841603833,
+      "value": 0.08215542645779268,
       "params": {
         "signal_config": "A + B + C + M",
         "latent_dim": 8,
@@ -499,7 +499,7 @@
       }
     },
     {
-      "value": 0.008019179932808623,
+      "value": 0.007778006599781652,
       "params": {
         "signal_config": "No signals",
         "latent_dim": 8,

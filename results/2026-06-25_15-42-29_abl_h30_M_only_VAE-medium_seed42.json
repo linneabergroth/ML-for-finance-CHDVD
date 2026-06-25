@@ -1,0 +1,31 @@
+{
+  "run_id": "2026-06-25_15-42-29_abl_h30_M_only_VAE-medium_seed42",
+  "timestamp": "2026-06-25T15:42:29.782925",
+  "model": "abl_h30_M_only_VAE-medium",
+  "seed": 42,
+  "horizon": 30,
+  "signals_meta": {
+    "use_set_a": false,
+    "use_set_b": false,
+    "use_set_c": false,
+    "use_set_m": true
+  },
+  "position_mode": "cost_aware",
+  "cost_bps": 1.0,
+  "n_features": 102,
+  "n_train": 87,
+  "n_val": 19,
+  "n_test": 19,
+  "date_test_start": "2024-02-05",
+  "date_test_end": "2026-04-01",
+  "weights_path": "../data/weights/abl_h30_M_only_VAE-medium_h30.pt",
+  "metrics": {
+    "IC_in": -0.14166545382477608,
+    "IC_out": -0.13150278393774423,
+    "RankIC_out": -0.08596491228070174,
+    "Sharpe_out": 1.191178350218576,
+    "AnnRet_out": 0.1899634468585253,
+    "position_mode": null,
+    "cost_bps": 1.0
+  }
+}
